@@ -139,7 +139,7 @@ int main() {
                 doctorLogin();
                 break;
             case 5:
-                printf(COLOR_RED"\nExiting Program. Goodbye!\n"COLOR_RESET);
+                printf(COLOR_GREEN"\nExiting Program. Goodbye!\n"COLOR_RESET);
                 return;
             default:
                 printf(COLOR_RED"\nInvalid Option. Please Try Again.\n"COLOR_RESET);
@@ -739,7 +739,7 @@ void displayDoctors() {
     }
 
     // Display table headers with proper column widths
-    printf("\n=================================================================================================================\n");
+    printf("=================================================================================================================\n");
     printf("| %-5s | %-25s | %-50s | %-20s |\n", "ID", "Name", "Specialty", "Username");
     printf("=================================================================================================================\n");
 
@@ -908,7 +908,7 @@ int i;
 
 // 14. Doctor Menu
 void doctorActions(int doctorIndex) {
-//	system("cls");
+	system("cls");
     int choice;
     do {
     	printf("===================\n");
@@ -917,6 +917,7 @@ void doctorActions(int doctorIndex) {
         printf("1. View Patient Records\n");
         printf("2. View Profile\n");
         printf("3. Logout\n");
+        printf("===================\n\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -940,10 +941,10 @@ void doctorActions(int doctorIndex) {
 void displayDoctorProfile(int doctorIndex) {
     // Printing the doctor's profile in a structured format
     printf("\nDoctor Profile\n");
-    printf("=======================================================================================================================================\n");
+    printf("=================================================================================================================\n");
     printf("| %-5s | %-25s | %-50s | %-20s |\n",
            "ID", "Name", "Speciality", "Username");
-    printf("=======================================================================================================================================\n");
+    printf("=================================================================================================================\n");
 
     // Print the doctor's information
     printf("| %-5d | %-25s | %-50s | %-20s |\n",
@@ -952,7 +953,7 @@ void displayDoctorProfile(int doctorIndex) {
            doctors[doctorIndex].speciality,
            doctors[doctorIndex].username);
 
-    printf("=======================================================================================================================================\n");
+    printf("=================================================================================================================\n");
 }
 
 // 16. Function To Save Doctor Data
@@ -983,7 +984,7 @@ void saveDoctors() {
 
 void addReceptionist() {
 	printf("======================\n");
-    printf("=== Display Doctor ===\n");
+    printf("=== Add Receptionist ===\n");
     printf("======================\n\n");
     displayReceptionists();
     if (receptionistCount >= MAX_RECEPTIONISTS) {
@@ -1260,7 +1261,8 @@ void patientMenu(){
 		printf("2. Display Patients\n");
 		printf("3. Edit Patient\n");
 		printf("4. Delete Patient\n");
-		printf("5. Go Back\n\n");
+		printf("5. Go Back\n");
+		printf("====================\n\n");
 		printf("Enter Your Choice: ");
 		scanf("%d", &choice);
 		
@@ -1298,7 +1300,8 @@ void doctorMenu(){
         printf("2. Display Doctors\n");
         printf("3. Edit Doctor\n");
         printf("4. Delete Doctor\n");
-        printf("5. Go Back\n\n");
+        printf("5. Go Back\n");
+        printf("===================\n\n");
         printf("Enter Your Choice: ");
         scanf("%d", &choice);
         
@@ -1336,7 +1339,8 @@ void receptionistMenu() {
         printf("2. Display Patients\n");
         printf("3. Edit Patient\n");
         printf("4. Delete Patient\n");
-        printf("5. Logout\n\n");
+        printf("5. Logout\n");
+        printf("=========================\n\n");
         printf("Enter Your Choice: ");
         scanf("%d", &choice);
         
@@ -1373,7 +1377,8 @@ void adminMenu() {
         printf("1. Manage Patients\n");
         printf("2. Manage Doctors\n");
         printf("3. Manage Receptionists\n");
-        printf("4. Logout\n\n");
+        printf("4. Logout\n");
+        printf("==================\n\n");
         printf("Enter Your Choice: ");
         scanf("%d", &choice);
         
@@ -1408,7 +1413,8 @@ void manageReceptionists() {
         printf("2. Display Receptionists\n");
         printf("3. Edit Receptionists\n");
         printf("4. Delete Receptionist\n");
-        printf("5. Go Back\n\n");
+        printf("5. Go Back\n");
+        printf("============================\n\n");
         printf("Enter Your Choice: ");
         scanf("%d", &choice);
         
