@@ -1,2 +1,0 @@
-1 abc 35 abc 102
-2 def 50 def -1
