@@ -201,7 +201,7 @@ if (file != NULL) {
         
         doctorCount++;
         if (doctorCount >= MAX_DOCTORS) {
-            printCentered(COLOR_RED"\nMaximum Doctor Limit Reached While Loading.\n"COLOR_RESET);
+            printCentered(COLOR_RED"Maximum Doctor Limit Reached While Loading.\n"COLOR_RESET);
             break;
         }
     }
@@ -223,7 +223,7 @@ file = fopen(FILENAME_RECEPTIONISTS, "r");
 
             receptionistCount++;
             if (receptionistCount >= MAX_RECEPTIONISTS) {
-                printCentered(COLOR_RED"\nMaximum Receptionist Limit Reached While Loading.\n"COLOR_RESET);
+                printCentered(COLOR_RED"Maximum Receptionist Limit Reached While Loading.\n"COLOR_RESET);
                 break;
             }
         }
@@ -262,9 +262,9 @@ void printCenteredInput(const char *text) {
 void addPatient() {
     system("cls"); // Clear the screen
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                            Patients List                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayPatients();
     printf("\n");
@@ -280,9 +280,9 @@ void addPatient() {
     newPatient.id = patientCount + 1;
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                           Add New Patient                            |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
 	printf("\n");
 	
     char buffer[100];
@@ -401,7 +401,7 @@ void addPatient() {
     patients[patientCount++] = newPatient;
     savePatients();
 
-    printCentered(COLOR_GREEN"\nPatient Added Successfully.\n"COLOR_RESET);
+    printCentered(COLOR_GREEN"Patient Added Successfully.\n"COLOR_RESET);
 }
 
 // 5. Display Patients Function
@@ -442,9 +442,9 @@ char row[200];
 // 6. Edit Patient Functions
 void editPatient() {
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Patients List                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayPatients();
     printf("\n");
@@ -452,9 +452,9 @@ void editPatient() {
     int id, found = 0, i;
 
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Edit Patient                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
 
     printCenteredInput("Enter Patient ID To Edit: ");
@@ -552,7 +552,7 @@ void editPatient() {
             }
 
             // Password (hidden input)
-            printCenteredInput("Set New Password (hidden, or press Enter to keep current password): ");
+            printCenteredInput("Set New Password (or press Enter to keep current password): ");
             char ch;
             int pos = 0;
             char newPassword[20] = ""; // Temporary buffer for password
@@ -594,9 +594,9 @@ void editPatient() {
 void deletePatient(){
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                            Patients List                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayPatients();
     printf("\n");
@@ -604,9 +604,9 @@ void deletePatient(){
 	int id, i, j, found=0;
 
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
 	printCentered("|                            Delete Patient                            |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
 	// Prompt for patient ID to delete
@@ -644,9 +644,9 @@ void patientLogin() {
     int i = 0;
     
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                            Patient Login                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
 
     // Input for username
@@ -745,17 +745,17 @@ void savePatients() {
 void addDoctor() {
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Doctor List                              |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayDoctors();
     printf("\n");
     
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                              Add Doctor                              |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
 
     if (doctorCount >= MAX_DOCTORS) {
@@ -867,17 +867,17 @@ void editDoctor() {
     int id, i, found = 0;
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Doctor List                              |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayDoctors();
     printf("\n");
     
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Edit Doctor                              |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
      printCenteredInput("Enter Doctor ID To Edit: ");
@@ -922,7 +922,7 @@ void editDoctor() {
             }
 
             // Password (Hidden Input)
-            printCenteredInput("Set New Password (hidden, or press Enter to keep current password): ");
+            printCenteredInput("Set New Password (or press Enter to keep current password): ");
             int pos = 0;
             char newPassword[20] = ""; // Temporary buffer for password
             while (1) {
@@ -965,17 +965,17 @@ void deleteDoctor(){
 	int id, i, j, found=0;
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Doctor List                              |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayDoctors();
     printf("\n");
     
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                            Delete Doctor                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
 	printCenteredInput("Enter Doctor ID To Delete: ");
@@ -1010,9 +1010,9 @@ void doctorLogin() {
     int found = 0;
     
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Doctor Login                             |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
     // Input for username
@@ -1071,13 +1071,13 @@ void doctorActions(int doctorIndex) {
 
     // Print the header with design and centered
     do {
-        printCentered("========================================================================");
+        printCentered("------------------------------------------------------------------------");
     	printCentered("|                             DOCTOR MENU                              |");
-        printCentered("========================================================================");
+        printCentered("------------------------------------------------------------------------");
         printCentered("|                         1. View Patient Records                      |");
         printCentered("|                         2. View Profile                              |");
         printCentered("|                         3. Logout                                    |");
-        printCentered("========================================================================");
+        printCentered("------------------------------------------------------------------------");
 
         // Center-aligned prompt for choice
         printCenteredInput("Enter your choice: ");
@@ -1104,9 +1104,9 @@ void displayDoctorProfile(int doctorIndex) {
 	char row[200];
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                            Doctor Profile                            |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
     printCentered("=================================================================================================================");
@@ -1130,7 +1130,7 @@ void displayDoctorProfile(int doctorIndex) {
 void saveDoctors() {
     FILE *file = fopen(FILENAME_DOCTORS, "w");
     if (file == NULL) {
-        printCentered(COLOR_RED"\nError Opening File To Save Doctors!\n"COLOR_RESET);
+        printCentered(COLOR_RED"Error Opening File To Save Doctors!\n"COLOR_RESET);
         return;
     }
 
@@ -1146,24 +1146,24 @@ void saveDoctors() {
     }
 
     fclose(file);
-    printCentered(COLOR_GREEN"\nDoctor Data Saved To File.\n"COLOR_RESET);
+    printCentered(COLOR_GREEN"Doctor Data Saved To File.\n"COLOR_RESET);
 }
 
 // 19. Add Receptionist Function(Admin Only)
 void addReceptionist() {
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                          Receptionists List                          |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayReceptionists();
     printf("\n");
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                           Add Receptionist                           |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
     if (receptionistCount >= MAX_RECEPTIONISTS) {
@@ -1262,17 +1262,17 @@ void editReceptionists() {
     }
     
     printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                          Receptionists List                          |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayReceptionists();
     printf("\n");
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                          Edit Receptionist                           |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
  printCenteredInput("Enter Receptionist ID To Edit: ");
@@ -1333,17 +1333,17 @@ void deleteReceptionist(){
 	}
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                          Receptionists List                          |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     displayReceptionists();
     printf("\n");
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                         Delete Receptionist                          |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
 	
 	int id;
@@ -1359,13 +1359,15 @@ void deleteReceptionist(){
             }
             receptionistCount--;
             saveReceptionists();
-            printCentered(COLOR_GREEN"\nReceptionist Deleted Successfully.\n"COLOR_RESET);
+            printf("\n");
+            printCentered(COLOR_GREEN"Receptionist Deleted Successfully.\n"COLOR_RESET);
             break;
         }
     }
 
     if (!found) {
-        sprintf(row, COLOR_RED"\nReceptionist With ID %d Not Found.\n"COLOR_RESET, id);
+    	printf("\n");
+        sprintf(row, COLOR_RED"Receptionist With ID %d Not Found.\n"COLOR_RESET, id);
         printCentered(row);
     }
 }
@@ -1375,7 +1377,8 @@ void saveReceptionists() {
 	int i;
     FILE *file = fopen(FILENAME_RECEPTIONISTS, "w");
     if (file == NULL) {
-        printCentered(COLOR_RED"\nError Opening File To Save Receptionists!\n"COLOR_RESET);
+    	printf("\n");
+        printCentered(COLOR_RED"Error Opening File To Save Receptionists!\n"COLOR_RESET);
         return;
     }
 
@@ -1387,7 +1390,8 @@ void saveReceptionists() {
                 receptionists[i].password);
     }
     fclose(file);
-    printCentered(COLOR_GREEN"\nReceptionist Data Saved To File.\n"COLOR_RESET);
+    printf("\n");
+    printCentered(COLOR_GREEN"Receptionist Data Saved To File.\n"COLOR_RESET);
 }
 
 // 24. Login Function For Admin
@@ -1396,9 +1400,9 @@ int login() {
     char username[20], password[20];
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                             Admin Login                              |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
     // Centered input prompt for Admin Username
@@ -1423,10 +1427,12 @@ int login() {
 
     // Check if username and password match
     if (strcmp(username, adminUsername) == 0 && strcmp(password, adminPassword) == 0) {
-        printCentered(COLOR_GREEN"\nAdmin Login Successful!\n"COLOR_RESET);
+    	printf("\n");
+        printCentered(COLOR_GREEN"Admin Login Successful!\n"COLOR_RESET);
         return 1;
     } else {
-        printCentered(COLOR_RED"\nInvalid Username or Password. Please try again.\n"COLOR_RESET);
+    	printf("\n");
+        printCentered(COLOR_RED"Invalid Username or Password. Please try again.\n"COLOR_RESET);
         return 0;
     }
 }
@@ -1438,9 +1444,9 @@ int receptionistLogin() {
     int i;
 	
 	printf("\n");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printCentered("|                          Receptionist Login                          |");
-    printCentered("========================================================================");
+    printCentered("------------------------------------------------------------------------");
     printf("\n");
     
     // Centered input prompt for Receptionist Username
@@ -1466,12 +1472,13 @@ int receptionistLogin() {
     // Check if username and password match
     for (i = 0; i < receptionistCount; i++) {
         if (strcmp(receptionists[i].username, username) == 0 && strcmp(receptionists[i].password, password) == 0) {
-            printCentered(COLOR_GREEN"\nReceptionist Login Successful!\n"COLOR_RESET);
+        	printf("\n");
+            printCentered(COLOR_GREEN"Receptionist Login Successful!\n"COLOR_RESET);
             return 1; // Login successful
         }
     }
-
-    printCentered(COLOR_RED"\nInvalid Username or Password. Please try again.\n"COLOR_RESET);
+	printf("\n");
+    printCentered(COLOR_RED"Invalid Username or Password. Please try again.\n"COLOR_RESET);
     return 0; // Login failed
 }
 
@@ -1483,15 +1490,15 @@ void patientMenu() {
 
         // Display the menu with borders and center-alignment        
         printf("\n");
-        printCentered("========================================================================");
+        printCentered("------------------------------------------------------------------------");
         printCentered("|                             PATIENT MENU                             |");
-        printCentered("========================================================================");
+        printCentered("------------------------------------------------------------------------");
         printCentered("|                         1. Add Patient                               |");
         printCentered("|                         2. Display Patients                          |");
         printCentered("|                         3. Edit Patient                              |");
         printCentered("|                         4. Delete Patient                            |");
         printCentered("|                         5. Go Back                                   |");
-        printCentered("========================================================================");
+        printCentered("------------------------------------------------------------------------");
         printf("\n");
 
         // Center-aligned prompt for choice
@@ -1512,10 +1519,12 @@ void patientMenu() {
                 deletePatient(); // Calls the function to delete a patient
                 break;
             case 5:
-                printCentered(COLOR_GREEN"\nReturning To Previous Menu...\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_GREEN"Returning To Previous Menu...\n"COLOR_RESET);
                 break;
             default:
-                printCentered(COLOR_RED"\nInvalid Choice! Please Try Again.\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
     } while (choice != 5); // Repeat until the user chooses to go back
 }
@@ -1527,15 +1536,15 @@ void doctorMenu() {
 //        system("cls");
 
 		printf("\n");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                             DOCTOR MENU                              |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                         1. Add Doctor                                |");
         printCentered("|                         2. Display Doctors                           |");
         printCentered("|                         3. Edit Doctor                               |");
         printCentered("|                         4. Delete Doctor                             |");
         printCentered("|                         5. Go Back                                   |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printf("\n");
 
         // Center-aligned prompt for choice
@@ -1556,10 +1565,12 @@ void doctorMenu() {
                 deleteDoctor();     // Calls the function to delete a doctor
                 break;
             case 5:
-                printCentered(COLOR_GREEN"\nReturning To Previous Menu...\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_GREEN"Returning To Previous Menu...\n"COLOR_RESET);
                 break;
             default:
-                printCentered(COLOR_RED"\nInvalid Choice! Please Try Again.\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
     } while (choice != 5);  // Repeat until the user chooses to go back
 }
@@ -1571,15 +1582,15 @@ void receptionistMenu() {
 //        system("cls");
 
 		printf("\n");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                          RECEPTIONIST MENU                           |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                         1. Add Patient                               |");
         printCentered("|                         2. Display Patients                          |");
         printCentered("|                         3. Edit Patient                              |");
         printCentered("|                         4. Delete Patient                            |");
         printCentered("|                         5. Go Back                                   |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printf("\n");
 
         // Center-aligned prompt for choice
@@ -1600,10 +1611,12 @@ void receptionistMenu() {
                 deletePatient();     // Calls the function to delete a patient
                 break;
             case 5:
-                printCentered(COLOR_GREEN"\nReceptionist Successfully Logout...\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_GREEN"Receptionist Successfully Logout...\n"COLOR_RESET);
                 break;
             default:
-                printCentered(COLOR_RED"\nInvalid Choice! Please Try Again.\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
     } while (choice != 5);  // Repeat until the user chooses to logout
 }
@@ -1616,14 +1629,14 @@ void adminMenu() {
 //        system("cls");  // Clear the screen
 
 		printf("\n");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                              ADMIN MENU                              |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                         1. Manage Patients                           |");
         printCentered("|                         2. Manage Doctors                            |");
         printCentered("|                         3. Manage Receptionists                      |");
         printCentered("|                         4. Logout                                    |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printf("\n");
 
         // Center-aligned prompt for choice
@@ -1641,10 +1654,12 @@ void adminMenu() {
                 manageReceptionists();  // Calls the function to manage receptionists
                 break;
             case 4:
-                printCentered(COLOR_GREEN"\nAdmin Successfully Logged Out...\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_GREEN"Admin Successfully Logged Out...\n"COLOR_RESET);
                 break;
             default:
-                printCentered(COLOR_RED"\nInvalid Choice! Please Try Again.\n"COLOR_RESET);
+            	printf("\n");
+                printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
     } while (choice != 4);  // Repeat until the user chooses to logout
 }
@@ -1657,15 +1672,15 @@ void manageReceptionists() {
         system("cls");  // Clear the screen
 
 		printf("\n");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                         MANAGE RECEPTIONISTS                         |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printCentered("|                         1. Add Receptionist                          |");
         printCentered("|                         2. Display Receptionists                     |");
         printCentered("|                         3. Edit Receptionist                         |");
         printCentered("|                         4. Delete Receptionist                       |");
         printCentered("|                         5. Go Back                                   |");
-		printCentered("========================================================================");
+		printCentered("------------------------------------------------------------------------");
         printf("\n");
 
         // Center-aligned prompt for choice
