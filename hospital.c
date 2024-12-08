@@ -2,7 +2,7 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<time.h> // Include the time.h library for date and time functions
+#include<time.h>
 
 #define MAX_PATIENTS 100
 #define MAX_DOCTORS 10
@@ -15,7 +15,6 @@
 #define COLOR_RESET "\033[0m"
 #define COLOR_GREEN "\033[32m"
 #define COLOR_RED "\033[31m"
-#define COLOR_CYAN "\033[36m"
 
 #define SCREEN_WIDTH 160 // Adjust this for your console width
 
@@ -261,13 +260,7 @@ void printCenteredInput(const char *text) {
 // 4. Add Patient Function
 void addPatient() {
     system("cls"); // Clear the screen
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                            Patients List                             |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayPatients();
-    printf("\n");
 
     if (patientCount >= MAX_PATIENTS) {
         printCentered(COLOR_RED"Cannot Add More Patients. Maximum Limit Reached.\n"COLOR_RESET);
@@ -345,7 +338,7 @@ void addPatient() {
     // Validate Mobile Number
     int validMobile = 0;
     while (!validMobile) {
-        printCenteredInput("Enter Patient Mobile (10 digits): ");
+        printCenteredInput("Enter Patient Mobile: ");
         scanf("%s", newPatient.mobile);
 
         if (strlen(newPatient.mobile) == 10 && strspn(newPatient.mobile, "0123456789") == 10) {
@@ -358,7 +351,7 @@ void addPatient() {
     // Validate Gender
     int validGender = 0;
     while (!validGender) {
-        printCenteredInput("Enter Gender (Male/Female): ");
+        printCenteredInput("Enter Gender: ");
         scanf("%s", newPatient.gender);
 
         if (strcmp(newPatient.gender, "Male") == 0 || strcmp(newPatient.gender, "Female") == 0) {
@@ -412,11 +405,14 @@ void displayPatients() {
     }
 char row[200];
     // Print header with border design, center aligned
-    printCentered("=======================================================================================================================================");
-    sprintf(row, "| %-5s | %-25s | %-5s | %-10s | %-20s | %-15s | %-15s | %-15s |", 
+    printf("\n");
+    printCentered("========================================================================");
+    printCentered("|                            Patients List                             |");
+    printCentered("---------------------------------------------------------------------------------------------------------------------------------------");
+	sprintf(row, "| %-5s | %-25s | %-5s | %-10s | %-20s | %-15s | %-15s | %-15s |", 
                   "ID", "Name", "Age", "Gender", "Disease", "Mobile", "Date", "Username");
                   printCentered(row);
-    printCentered("=======================================================================================================================================");
+    printCentered("---------------------------------------------------------------------------------------------------------------------------------------");
 
     int i;
     for (i = 0; i < patientCount; i++) {
@@ -436,18 +432,13 @@ char row[200];
         printCentered(row);  // Now passing the row (formatted string) to printCentered
     }
 
-    printCentered("=======================================================================================================================================\n");
+    printCentered("---------------------------------------------------------------------------------------------------------------------------------------");
 }
 
 // 6. Edit Patient Functions
 void editPatient() {
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                             Patients List                             |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
+	
     displayPatients();
-    printf("\n");
     
     int id, found = 0, i;
 
@@ -593,13 +584,7 @@ void editPatient() {
 // 7. Delete Patient Function
 void deletePatient(){
 	
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                            Patients List                             |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayPatients();
-    printf("\n");
     
 	int id, i, j, found=0;
 
@@ -681,13 +666,13 @@ void displayRecordsByUsername(const char *username) {
         if (strcmp(patients[i].username, username) == 0) {
             found = 1;
             char row[200];
-            sprintf(row, COLOR_GREEN, "\nLogin Successful! Welcome, %s.\n"COLOR_RESET, patients[i].name);
-            sprintf(row, COLOR_GREEN, "\nPatient Records for Name: %s\n", patients[i].name);
-            printCentered("=======================================================================================================================================");
-            sprintf(row, "| %-5s | %-25s | %-5s | %-10s | %-20s | %-15s | %-15s | %-15s |",
+            sprintf(row, COLOR_GREEN, "Login Successful! Welcome, %s.\n"COLOR_RESET, patients[i].name);
+            sprintf(row, COLOR_GREEN, "Patient Records for Name: %s\n", patients[i].name);
+            printCentered("---------------------------------------------------------------------------------------------------------------------------------------");
+			sprintf(row, "| %-5s | %-25s | %-5s | %-10s | %-20s | %-15s | %-15s | %-15s |",
                    "ID", "Name", "Age", "Gender", "Disease", "Mobile", "Date", "Username");
             		printCentered(row);
-			printCentered("=======================================================================================================================================");
+			printCentered("---------------------------------------------------------------------------------------------------------------------------------------");
 
             // Print the patient's data in the formatted table
             sprintf(row, "| %-5d | %-25s | %-5d | %-10s | %-20s | %-15s | %-15s | %-15s |",
@@ -704,13 +689,13 @@ void displayRecordsByUsername(const char *username) {
     }
 
     if (!found) {
-        printCentered(COLOR_RED"\nInvalid Username or Password. Please try again.\n"COLOR_RESET);
+        printCentered(COLOR_RED"Invalid Username or Password. Please try again.\n"COLOR_RESET);
     } else {
-        printCentered("=======================================================================================================================================\n");
+        printCentered("---------------------------------------------------------------------------------------------------------------------------------------\n");
     }
 
     // Pause for the user to read the result
-    printCentered("\nPress Enter to continue...");
+    printCentered("Press Enter to continue...");
     getchar();
 }
 
@@ -744,13 +729,7 @@ void savePatients() {
 // 11. Add Doctor Function
 void addDoctor() {
 	
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                             Doctor List                              |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayDoctors();
-    printf("\n");
     
     printf("\n");
     printCentered("------------------------------------------------------------------------");
@@ -841,12 +820,14 @@ void displayDoctors() {
         printf("\nNo Doctors To Display.\n");
         return;
     }
-
+    printf("\n");
+	printCentered("========================================================================");
+    printCentered("|                             Doctor List                              |");
     // Display table headers with proper column widths
-    printCentered("=================================================================================================================");
+    printCentered("-----------------------------------------------------------------------------------------------------------------");
     sprintf(row, "| %-5s | %-25s | %-50s | %-20s |", "ID", "Name", "Specialty", "Username");
     printCentered(row);
-    printCentered("=================================================================================================================");
+    printCentered("-----------------------------------------------------------------------------------------------------------------");
 
     // Display each doctor's details
     for (i = 0; i < doctorCount; i++) {
@@ -859,20 +840,14 @@ void displayDoctors() {
     }
 
     // Footer for the table
-    printCentered("=================================================================================================================\n");
+    printCentered("-----------------------------------------------------------------------------------------------------------------\n");
 }
 
 // 13. Edit Doctor Function
 void editDoctor() {
     int id, i, found = 0;
 	
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                             Doctor List                              |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayDoctors();
-    printf("\n");
     
     printf("\n");
     printCentered("------------------------------------------------------------------------");
@@ -964,13 +939,7 @@ void deleteDoctor(){
 	
 	int id, i, j, found=0;
 	
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                             Doctor List                              |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayDoctors();
-    printf("\n");
     
     printf("\n");
     printCentered("------------------------------------------------------------------------");
@@ -1071,6 +1040,7 @@ void doctorActions(int doctorIndex) {
 
     // Print the header with design and centered
     do {
+    	printf("\n");
         printCentered("------------------------------------------------------------------------");
     	printCentered("|                             DOCTOR MENU                              |");
         printCentered("------------------------------------------------------------------------");
@@ -1104,16 +1074,14 @@ void displayDoctorProfile(int doctorIndex) {
 	char row[200];
 	
 	printf("\n");
-    printCentered("------------------------------------------------------------------------");
+    printCentered("========================================================================");
     printCentered("|                            Doctor Profile                            |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     
-    printCentered("=================================================================================================================");
+    printCentered("-----------------------------------------------------------------------------------------------------------------");
     sprintf(row, "| %-5s | %-25s | %-50s | %-20s |",
            "ID", "Name", "Speciality", "Username");
            printCentered(row);
-    printCentered("=================================================================================================================");
+    printCentered("-----------------------------------------------------------------------------------------------------------------");
 
     // Print the doctor's information
     sprintf(row, "| %-5d | %-25s | %-50s | %-20s |",
@@ -1123,7 +1091,7 @@ void displayDoctorProfile(int doctorIndex) {
            doctors[doctorIndex].username);
            printCentered(row);
 
-    printCentered("=================================================================================================================\n");
+    printCentered("-----------------------------------------------------------------------------------------------------------------");
 }
 
 // 18. Function To Save Doctor Data
@@ -1152,13 +1120,7 @@ void saveDoctors() {
 // 19. Add Receptionist Function(Admin Only)
 void addReceptionist() {
 	
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                          Receptionists List                          |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayReceptionists();
-    printf("\n");
 	
 	printf("\n");
     printCentered("------------------------------------------------------------------------");
@@ -1230,12 +1192,14 @@ void displayReceptionists() {
         printCentered(COLOR_RED"No Receptionists To Display.\n"COLOR_RESET);
         return;
     }
-
+	printf("\n");
+	printCentered("========================================================================");
+    printCentered("|                          Receptionists List                          |");
     // Print the table header with correct formatting
-    printCentered("========================================================================================================================");
+    printCentered("------------------------------------------------------------------------------------------------------------------------");
     sprintf(row, "| %-10s | %-50s | %-50s |", "ID", "Name", "Username");
     printCentered(row);
-    printCentered("========================================================================================================================");
+    printCentered("------------------------------------------------------------------------------------------------------------------------");
 
     // Loop through each receptionist and display their details
     for (i = 0; i < receptionistCount; i++) {
@@ -1247,37 +1211,31 @@ void displayReceptionists() {
     }
 
     // Footer for the table
-    printCentered("========================================================================================================================");
-    printf("\n");
+    printCentered("------------------------------------------------------------------------------------------------------------------------");
 }
 
 // 21. Edit Receptionist Function (Admin Only)
 void editReceptionists() {
-        int id, found = 0, i;
-        char row[200];
-        
-        if (receptionistCount == 0) {
+    int id, found = 0, i;
+    char row[200];
+
+    if (receptionistCount == 0) {
         printf("\nNo Receptionists To Edit.\n");
         return;
     }
-    
-    printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                          Receptionists List                          |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
+
     displayReceptionists();
+
     printf("\n");
-	
-	printf("\n");
     printCentered("------------------------------------------------------------------------");
     printCentered("|                          Edit Receptionist                           |");
     printCentered("------------------------------------------------------------------------");
     printf("\n");
-    
- printCenteredInput("Enter Receptionist ID To Edit: ");
+
+    printCenteredInput("Enter Receptionist ID To Edit: ");
     scanf("%d", &id);
-    
+    getchar(); // Clear the newline character left in the input buffer by scanf
+
     for (i = 0; i < receptionistCount; i++) {
         if (receptionists[i].id == id) {
             found = 1;
@@ -1285,31 +1243,47 @@ void editReceptionists() {
             sprintf(row, "Editing Details For Receptionist ID %d\n", id);
             printCentered(row);
 
-            // Name
+            // Update Name
             sprintf(row, "Enter New Name (or press Enter to keep '%s'): ", receptionists[i].name);
-            getchar(); // Clear newline character from previous input
+            printCenteredInput(row);
             fgets(temp, sizeof(temp), stdin);
-            if (temp[0] != '\n') { // Check if the user entered something
+            if (temp[0] != '\n') { // If a new name is provided
                 temp[strcspn(temp, "\n")] = '\0'; // Remove trailing newline
                 strcpy(receptionists[i].name, temp); // Update name
-                printCentered(row);
             }
 
-            // Username
+            // Update Username
             sprintf(row, "Enter New Username (or press Enter to keep '%s'): ", receptionists[i].username);
+            printCenteredInput(row);
             fgets(temp, sizeof(temp), stdin);
-            if (temp[0] != '\n') { // Check if the user entered something
+            if (temp[0] != '\n') { // If a new username is provided
                 temp[strcspn(temp, "\n")] = '\0'; // Remove trailing newline
                 strcpy(receptionists[i].username, temp); // Update username
-                printCentered(row);
             }
 
-            // Password (hidden input)
-            printCenteredInput("Enter New Password (or press Enter to keep existing Password): ");
-            fgets(temp, sizeof(temp), stdin);
-            if (temp[0] != '\n') { // Check if the user entered something
-                temp[strcspn(temp, "\n")] = '\0'; // Remove trailing newline
-                strcpy(receptionists[i].password, temp); // Update password
+            // Update Password (hidden input)
+            printCenteredInput("Enter New Password (hidden, or press Enter to keep existing Password): ");
+            int pos = 0;
+            char newPassword[50] = ""; // Temporary buffer for the new password
+            char ch;
+
+            while (1) {
+                ch = getch(); // Get character without displaying it
+                if (ch == '\r') { // Enter key pressed
+                    newPassword[pos] = '\0'; // Null-terminate the password
+                    break;
+                } else if (ch == '\b' && pos > 0) { // Backspace pressed
+                    printf("\b \b");
+                    pos--;
+                } else if (pos < sizeof(newPassword) - 1) { // Normal character
+                    newPassword[pos++] = ch;
+                    printf("*"); // Display an asterisk for each character
+                }
+            }
+            printf("\n");
+
+            if (strlen(newPassword) > 0) { // Update password only if a new one is provided
+                strcpy(receptionists[i].password, newPassword);
             }
 
             saveReceptionists();
@@ -1332,13 +1306,7 @@ void deleteReceptionist(){
 		return;
 	}
 	
-	printf("\n");
-    printCentered("------------------------------------------------------------------------");
-    printCentered("|                          Receptionists List                          |");
-    printCentered("------------------------------------------------------------------------");
-    printf("\n");
     displayReceptionists();
-    printf("\n");
 	
 	printf("\n");
     printCentered("------------------------------------------------------------------------");
@@ -1428,11 +1396,11 @@ int login() {
     // Check if username and password match
     if (strcmp(username, adminUsername) == 0 && strcmp(password, adminPassword) == 0) {
     	printf("\n");
-        printCentered(COLOR_GREEN"Admin Login Successful!\n"COLOR_RESET);
+        printCentered(COLOR_GREEN" Admin Login Successful!\n"COLOR_RESET);
         return 1;
     } else {
     	printf("\n");
-        printCentered(COLOR_RED"Invalid Username or Password. Please try again.\n"COLOR_RESET);
+        printCentered(COLOR_RED" Invalid Username or Password. Please try again.\n"COLOR_RESET);
         return 0;
     }
 }
@@ -1621,7 +1589,6 @@ void receptionistMenu() {
     } while (choice != 5);  // Repeat until the user chooses to logout
 }
 
-
 // 29. Display Receptionist Menu Manages All Data
 void adminMenu() {
     int choice;
@@ -1668,10 +1635,9 @@ void adminMenu() {
 // 30. Display Receptionist Menu Manage By Admin
 void manageReceptionists() {
     int choice;
+    system("cls");  // Clear the screen
     do {
-        system("cls");  // Clear the screen
-
-		printf("\n");
+        printf("\n");
 		printCentered("------------------------------------------------------------------------");
         printCentered("|                         MANAGE RECEPTIONISTS                         |");
 		printCentered("------------------------------------------------------------------------");
@@ -1701,10 +1667,10 @@ void manageReceptionists() {
                 deleteReceptionist();  // Calls the function to delete a receptionist
                 break;
             case 5:
-                printCentered(COLOR_GREEN"\nReturning To Previous Menu...\n"COLOR_RESET);
+                printCentered(COLOR_GREEN"Returning To Previous Menu...\n"COLOR_RESET);
                 break;
             default:
-                printCentered(COLOR_RED"\nInvalid Choice! Please Try Again.\n"COLOR_RESET);
+                printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
     } while (choice != 5);  // Repeat until the user chooses to go back
 }

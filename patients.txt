@@ -1,5 +1,5 @@
 1
-Isha
+Isha Ghelani
 21
 Female
 Cold
@@ -10,7 +10,7 @@ isha123
 03/12/2024
 
 2
-Chetali
+Chetali Moradiya
 21
 Female
 Fever
@@ -21,18 +21,18 @@ chetali123
 03/12/2024
 
 3
-Avi
+Avi Italiya
 21
 Male
-Fever and Cold
+Fever and Headache
 Surat
 7548231545
 avi123
 avi123
-03/12/2024
+04/12/2024
 
 4
-Shubham
+Shubham Sheta
 21
 Male
 Headache
@@ -40,5 +40,4 @@ Surat
 9875856230
 shubham123
 shubham123
-03/12/2024
-
+04/12/2024
