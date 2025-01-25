@@ -16,7 +16,7 @@
 #define COLOR_GREEN "\033[32m"
 #define COLOR_RED "\033[31m"
 
-#define SCREEN_WIDTH 160 // Adjust this for your console width
+#define SCREEN_WIDTH 160
 
 // Admin credentials
 char adminUsername[] = "admin";
@@ -25,13 +25,13 @@ char adminPassword[] = "admin123";
 //Structure for Patient
 struct Patient {
     int id;
-    char date[15];      // Field for date
+    char date[15]; 
     char name[50];
     int age;
     char disease[50];
     char address[100];
     char mobile[15];
-    char gender[10];    // Added gender field
+    char gender[10]; 
     char username[20];
     char password[20];
 };
@@ -133,12 +133,12 @@ int main() {
         switch (choice) {
             case 1:
                 if (login()) {
-                    adminMenu(); // Admin management
+                    adminMenu();
                 }
                 break;
             case 2:
                 if (receptionistLogin()) {
-                    receptionistMenu(); // Receptionist management
+                    receptionistMenu();
                 }
                 break;
             case 3:
@@ -174,13 +174,13 @@ FILE *file = fopen(FILENAME_PATIENTS, "r");
                   &patients[patientCount].id,
                   patients[patientCount].name,
                   &patients[patientCount].age,
-                  patients[patientCount].gender, // Load gender
+                  patients[patientCount].gender,
                   patients[patientCount].disease,
                   patients[patientCount].address,
                   patients[patientCount].mobile,
                   patients[patientCount].username,
                   patients[patientCount].password,
-                  patients[patientCount].date) == 10) { // Expect exactly 10 fields
+                  patients[patientCount].date) == 10) { 
         		  patientCount++;
     }
 
@@ -194,8 +194,8 @@ if (file != NULL) {
             &doctors[doctorCount].id,
             doctors[doctorCount].name,
             doctors[doctorCount].speciality,
-            doctors[doctorCount].username,   // Read the Username
-            doctors[doctorCount].password)   // Read the Password
+            doctors[doctorCount].username, 
+            doctors[doctorCount].password) 
             != EOF) {
         
         doctorCount++;
@@ -252,7 +252,7 @@ void printCenteredInput(const char *text) {
     int padding = (SCREEN_WIDTH - strlen(text)) / 2;
     for (i = 0; i < padding; i++) 
 	printf(" ");
-    printf("%s", text); // No newline to keep `scanf` aligned
+    printf("%s", text);
 }
 
 //Patients Function
@@ -399,6 +399,7 @@ void addPatient() {
 
 // 5. Display Patients Function
 void displayPatients() {
+	system("cls");
     if (patientCount == 0) {
         printCentered(COLOR_RED"No Patients To Display.\n"COLOR_RESET);
         return;
@@ -416,7 +417,6 @@ char row[200];
 
     int i;
     for (i = 0; i < patientCount; i++) {
-        // Construct the row dynamically before passing to printCentered
         
         sprintf(row, "| %-5d | %-25s | %-5d | %-10s | %-20s | %-15s | %-15s | %-15s |", 
                 patients[i].id, 
@@ -437,6 +437,7 @@ char row[200];
 
 // 6. Edit Patient Functions
 void editPatient() {
+	system("cls");
 	
     displayPatients();
     
@@ -583,7 +584,7 @@ void editPatient() {
 
 // 7. Delete Patient Function
 void deletePatient(){
-	
+	system("cls");
     displayPatients();
     
 	int id, i, j, found=0;
@@ -659,6 +660,7 @@ void patientLogin() {
 
 // 9. Display All Records with the Same Username
 void displayRecordsByUsername(const char *username) {
+	system("cls");
     int found = 0, i;
 
     // Loop through patients to find the matching username
@@ -728,7 +730,7 @@ void savePatients() {
 
 // 11. Add Doctor Function
 void addDoctor() {
-	
+	system("cls");
     displayDoctors();
     
     printf("\n");
@@ -813,7 +815,7 @@ void addDoctor() {
 
 // 12. Display Doctor Function
 void displayDoctors() {
-//    system("cls");
+    system("cls");
     int i;
     char row[200];
     if (doctorCount == 0) {
@@ -845,6 +847,7 @@ void displayDoctors() {
 
 // 13. Edit Doctor Function
 void editDoctor() {
+	system("cls");
     int id, i, found = 0;
 	
     displayDoctors();
@@ -936,7 +939,7 @@ void editDoctor() {
 
 // 14. Delete Doctor Function
 void deleteDoctor(){
-	
+	system("cls");
 	int id, i, j, found=0;
 	
     displayDoctors();
@@ -974,7 +977,7 @@ void deleteDoctor(){
 
 // 15. Doctor Login
 void doctorLogin() {
-//	system("cls");
+	system("cls");
     char inputUsername[20], inputPassword[20];
     int found = 0;
     
@@ -1035,7 +1038,7 @@ void doctorLogin() {
 
 // 16. Doctor Menu
 void doctorActions(int doctorIndex) {
-    system("cls");
+//    system("cls");
     int choice;
 
     // Print the header with design and centered
@@ -1071,6 +1074,7 @@ void doctorActions(int doctorIndex) {
 
 // 17. Doctor Profile
 void displayDoctorProfile(int doctorIndex) {
+	system("cls");
 	char row[200];
 	
 	printf("\n");
@@ -1119,7 +1123,7 @@ void saveDoctors() {
 
 // 19. Add Receptionist Function(Admin Only)
 void addReceptionist() {
-	
+	system("cls");
     displayReceptionists();
 	
 	printf("\n");
@@ -1185,6 +1189,7 @@ void addReceptionist() {
 
 // 20. Display Receptionist Function(Admin Only)
 void displayReceptionists() {
+	system("cls");
     int i;
     char row[200];
 
@@ -1216,6 +1221,7 @@ void displayReceptionists() {
 
 // 21. Edit Receptionist Function (Admin Only)
 void editReceptionists() {
+	system("cls");
     int id, found = 0, i;
     char row[200];
 
@@ -1300,6 +1306,7 @@ void editReceptionists() {
 
 // 22. Delete Receptionist Function(Admin Only)
 void deleteReceptionist(){
+	system("cls");
 	char row[200];
 	if(receptionistCount == 0){
 		printCentered(COLOR_RED"No Receptionists To Delete.\n"COLOR_RESET);
@@ -1453,8 +1460,8 @@ int receptionistLogin() {
 // 26. Display Patient Menu
 void patientMenu() {
     int choice;
+//    system("cls");
     do {
-//        system("cls");
 
         // Display the menu with borders and center-alignment        
         printf("\n");
@@ -1475,16 +1482,16 @@ void patientMenu() {
 
         switch (choice) {
             case 1:
-                addPatient(); // Calls the function to add a new patient
+                addPatient();
                 break;
             case 2:
-                displayPatients(); // Calls the function to display all patients
+                displayPatients();
                 break;
             case 3:
-                editPatient(); // Calls the function to edit a patient's details
+                editPatient();
                 break;
             case 4:
-                deletePatient(); // Calls the function to delete a patient
+                deletePatient(); 
                 break;
             case 5:
             	printf("\n");
@@ -1494,12 +1501,13 @@ void patientMenu() {
             	printf("\n");
                 printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
-    } while (choice != 5); // Repeat until the user chooses to go back
+    } while (choice != 5);
 }
 
 // 27. Display Doctor Menu
 void doctorMenu() {
     int choice;
+//    system("cls");
     do {
 //        system("cls");
 
@@ -1521,16 +1529,16 @@ void doctorMenu() {
 
         switch (choice) {
             case 1:
-                addDoctor();        // Calls the function to add a new doctor
+                addDoctor();
                 break;
             case 2:
-                displayDoctors();   // Calls the function to display all doctors
+                displayDoctors();
                 break;
             case 3:
-                editDoctor();       // Calls the function to edit a doctor's details
+                editDoctor();    
                 break;
             case 4:
-                deleteDoctor();     // Calls the function to delete a doctor
+                deleteDoctor();     
                 break;
             case 5:
             	printf("\n");
@@ -1540,7 +1548,7 @@ void doctorMenu() {
             	printf("\n");
                 printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
-    } while (choice != 5);  // Repeat until the user chooses to go back
+    } while (choice != 5); 
 }
 
 // 28. Display Receptionist Menu For Manage Only Patients
@@ -1567,16 +1575,16 @@ void receptionistMenu() {
 
         switch (choice) {
             case 1:
-                addPatient();        // Calls the function to add a new patient
+                addPatient();
                 break;
             case 2:
-                displayPatients();   // Calls the function to display all patients
+                displayPatients(); 
                 break;
             case 3:
-                editPatient();       // Calls the function to edit a patient's details
+                editPatient();      
                 break;
             case 4:
-                deletePatient();     // Calls the function to delete a patient
+                deletePatient(); 
                 break;
             case 5:
             	printf("\n");
@@ -1586,7 +1594,7 @@ void receptionistMenu() {
             	printf("\n");
                 printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
-    } while (choice != 5);  // Repeat until the user chooses to logout
+    } while (choice != 5);
 }
 
 // 29. Display Receptionist Menu Manages All Data
@@ -1612,13 +1620,13 @@ void adminMenu() {
 
         switch (choice) {
             case 1:
-                patientMenu();          // Calls the function to manage patients
+                patientMenu();          
                 break;
             case 2:
-                doctorMenu();           // Calls the function to manage doctors
+                doctorMenu();           
                 break;
             case 3:
-                manageReceptionists();  // Calls the function to manage receptionists
+                manageReceptionists();  
                 break;
             case 4:
             	printf("\n");
@@ -1628,7 +1636,7 @@ void adminMenu() {
             	printf("\n");
                 printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
-    } while (choice != 4);  // Repeat until the user chooses to logout
+    } while (choice != 4); 
 }
 
 
@@ -1655,16 +1663,16 @@ void manageReceptionists() {
 
         switch (choice) {
             case 1:
-                addReceptionist();  // Calls the function to add a new receptionist
+                addReceptionist();
                 break;
             case 2:
-                displayReceptionists();  // Calls the function to display all receptionists
+                displayReceptionists();
                 break;
             case 3:
-                editReceptionists();  // Calls the function to edit a receptionist's details
+                editReceptionists();
                 break;
             case 4:
-                deleteReceptionist();  // Calls the function to delete a receptionist
+                deleteReceptionist();
                 break;
             case 5:
                 printCentered(COLOR_GREEN"Returning To Previous Menu...\n"COLOR_RESET);
@@ -1672,5 +1680,5 @@ void manageReceptionists() {
             default:
                 printCentered(COLOR_RED"Invalid Choice! Please Try Again.\n"COLOR_RESET);
         }
-    } while (choice != 5);  // Repeat until the user chooses to go back
+    } while (choice != 5);
 }
